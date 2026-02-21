@@ -2,10 +2,14 @@ import React, { useContext } from "react";
 import { UserContext } from "./context/UserContext";
 
 const Profile = () => {
-  const { user } = useContext(UserContext);
+  const { user,logout } = useContext(UserContext);
+
+  if(!user) return <div>Please Login</div>
+  
   return (
     <div>
-      Welcome {user.username} {user.password}
+      <h2>Welcome {user.username}</h2>
+      <button onClick={logout}>Logout</button>
     </div>
   );
 };
